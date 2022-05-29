@@ -1,0 +1,50 @@
+.temp-deseo{
+    min-height: 100%;
+    display: grid;
+    grid-template: 
+        " section-header"  110px
+        "section-content" auto/
+        100%;
+    grid-gap: 10px;
+    padding:40px 25px;
+}
+
+.section-header{
+    display: grid;
+    grid-area:section-header; 
+    width: 100%;
+    grid-gap: 20px;
+    justify-content: start;
+
+    .section-top{
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        grid-gap: 10px;
+    }
+    
+}
+
+.section-content{
+    display: grid;
+    grid-area:section-content; 
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: start;
+    align-content: start;
+    gap: 20px;
+}
+
+.card-v{
+    width: 290px;
+
+    .footer{
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 10px;
+        button{
+            background: none;
+            border: none;
+        }
+    }
+}

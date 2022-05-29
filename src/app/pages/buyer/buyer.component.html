@@ -1,0 +1,349 @@
+<div class="temp-buyer">
+    
+    <!-- ! SECTION FILTRO ======================================== -->
+
+    <div class="section-filtro">
+
+        <div class="content-p1">
+            <div class="left">
+                <h1>EL VEHÍCULO IDEAL PARA TI</h1>
+
+                <p>Encuentra todo tipo de vehículos, desde autos hasta camiones y caravanas o publica tus anuncios en la página y conviertete en vendedor</p>
+            </div>
+
+            <div>
+                <img src="../../../assets/img/car-bg-filtro.png" alt="">
+            </div>
+        </div>
+
+        <div class="select-carrusel">
+            <span  class="icon icon-cheveron-left"></span>
+
+            <div class="circle-active"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            
+            <span  class="icon icon-cheveron-right"></span>
+
+        </div>
+
+
+        <div class="card-filtro">
+            <div class="top">
+                <h1>Vehículos</h1>
+
+                <button 
+                    class="btn  btn-block" 
+                    [class]="type=='auto'? 'btn-primary':'btn-primary-inv' " 
+                    (click)="ChangeType('auto')"
+                > <span class="icon-time_to_leave"></span> Auto</button>
+                <button 
+                    class="btn btn-block"
+                    [class]="type=='moto'? 'btn-primary':'btn-primary-inv' " 
+                    (click)="ChangeType('moto')"
+                > <span class="icon-moped"></span> Motos</button>
+                <button 
+                    class="btnbtn-block"
+                    [class]="type=='truck'? 'btn-primary':'btn-primary-inv' " 
+                    (click)="ChangeType('truck')"
+                > <span class="icon-truck"></span> Camión</button>
+
+                <button 
+                    class="btn btn-block"
+                    [class]="type=='MOBILE-HOME'? 'btn-primary':'btn-primary-inv' " 
+                    (click)="ChangeType('MOBILE-HOME')"
+                > <span class="icon-airport_shuttle"></span> Caravana</button>
+            </div>
+
+            <div class="bottom">
+                <div class="form-group">
+                    <label for="">País</label>
+                    <select class="select-square" name="" id=""></select>
+                </div>
+                <div class="form-group">
+                    <label for="">Marca</label>
+                    <select class="select-square" (change)="FiltrarModelo()" [(ngModel)]="marca" name="" id="">
+                        <option value=""   >SELECCIONE</option>
+                        <option  [value]="item.id" *ngFor="let item of marcas" > {{item.name}} </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Modelo</label>
+                    <select class="select-square" [(ngModel)]="modelo" name="" id="">
+                        <option  [value]="item.id" *ngFor="let item of modelos" > {{item.name}} </option>
+                    </select>
+                </div>
+
+                <button class="btn btn-primary btn-block" (click)="Filtrar()" routerLink="compra" >Buscar</button>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <!-- ! SECTION CONTENT ======================================== -->
+    <div class="section-content">
+
+        <!-- ! DESTACADOS ====================================================================== -->
+        <!-- ? CAROUSEL CARROS 1 ====================================================================== -->
+        <div class="section">
+            <div class="titulo"> 
+                <h2 >Compra un auto destacado</h2>
+
+                <button class="btn">VER TODOS</button>
+            </div>
+
+            <!-- ! CAROUSEL CARROS 1 ====================================================================== -->
+            <div class="carousel-container">
+                <button class="carousel__anterior" aria-label="anterior">
+                    <span class="icon icon-cheveron-left"></span>
+                </button>
+                
+                <div class="content">
+                    <div *ngFor="let item of ads_auto" class="card card-carousel">
+                        <div class="card-carousel-img">
+                            <div class="card-carousel-img-top">
+                                <button class="btn btn-bookmark"><span class="icon-bookmark text-black"></span></button>
+                            </div>
+                            <img [src]="'https://cdn.autosmotos.es/'+item.ad.thumbnail" alt="">
+                        </div>
+                        <div class="card-carousel-body">
+        
+                            <h2 class="title"> {{item.ad.title}} </h2>
+        
+                            <div class="body">
+                                <h5>Marca: {{item.make.name}} </h5>
+                                <h5>Modelo: {{item.model.name }} </h5>
+                                <h5>Carrocería: {{ item.body_type?.external_name }} </h5>
+                                <h5>Año: {{item.first_registration_year}} </h5>
+                                <h5>KM: {{item.mileage}} </h5>
+                                <h5>Diesel: {{item.fuel_type.external_name}} </h5>
+                                <h5>Caja manual: {{ item.transmission_type?.external_name }} </h5>
+                            </div>
+        
+                            <h1 class="text-black font-500"> {{item.price}} </h1>
+    
+                            <div class="grid gc-2x-g">
+                                <div class="flex-column">
+                                    <img src="../../../assets/img/btn-wsp.png" alt="">
+                                    <img src="../../../assets/img/btn-phone.png" alt="">
+                                </div>
+                                <div>
+                                    <h4>Vendedor</h4>
+                                    <h4 class="color-rojo">5.0 <span class="icon icon-star color-rojo"></span> </h4>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+
+                <button class="carousel__siguiente" aria-label="siguiente">
+                    <span class="icon icon-cheveron-right"></span>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- ? CAROUSEL CARROS 2 ====================================================================== -->
+        <div class="section">
+            <div class="titulo"> 
+                <h2 >Últimos publicados</h2>
+
+                <button class="btn">VER TODOS</button>
+            </div>
+
+            <div class="carousel-container">
+                <button class="carousel__anterior" aria-label="anterior">
+                    <span class="icon icon-cheveron-left"></span>
+                </button>
+                
+                <div class="content">
+                    <div *ngFor="let item of ultimos" class="card card-carousel">
+                        <div class="card-carousel-img">
+                            <div class="card-carousel-img-top">
+                                <button class="btn btn-bookmark"><span class="icon-bookmark text-black"></span></button>
+                            </div>
+                            <img [src]="CargarThumb(item.thumbnail)"  alt="">
+                        </div>
+                        <div class="card-carousel-body">
+        
+                            <h2 class="title"> {{item.title}} </h2>
+        
+                            <div class="body">
+                                <h5>Marca:</h5>
+                                <h5>Modelo:</h5>
+                                <h5>Carrocería:</h5>
+                                <h5>Año: {{item.auto_ad?.first_registration_year}} </h5>
+                                <h5>KM: {{item.auto_ad?.mileage}} </h5>
+                                <h5>Diesel:</h5>
+                                <h5>Caja manual:</h5>
+                            </div>
+        
+                            <h1 class="text-black font-500"> {{item.auto_ad?.price}} </h1>
+    
+                            <div class="grid gc-2x-g">
+                                <div class="flex-column">
+                                    <img src="../../../assets/img/btn-wsp.png" alt="">
+                                    <img src="../../../assets/img/btn-phone.png" alt="">
+                                </div>
+                                <div>
+                                    <h4>Vendedor</h4>
+                                    <h4 class="color-rojo">5.0 <span class="icon icon-star color-rojo"></span> </h4>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+
+                <button class="carousel__siguiente" aria-label="siguiente">
+                    <span class="icon icon-cheveron-right"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ! TALLERES ====================================================================== -->
+
+        <div class="section">
+            <div class="titulo"> 
+                <h2 >Talleres destacados</h2>
+                <button class="btn">VER TODOS</button>
+            </div>
+
+            <div class="carousel-container">
+                <button class="carousel__anterior" aria-label="anterior">
+                    <span class="icon icon-cheveron-left"></span>
+                </button>
+
+                <div class="content">
+                    <div *ngFor="let item of talleres" class="card-h">
+                        <div class="card-h-img">
+                            <img [src]="CargarThumb(item.thumbnail)"  alt="">
+                        </div>
+        
+                        <div class="card-h-body">
+                            <div class="section">
+                                <h4 class="title" > {{item.title }} </h4>
+                                <button class="btn"><span class="icon icon-bookmark"></span></button>
+                            </div>
+        
+                            <div class="section">
+                                <h5> {{item.mechanic_ad?.address}} </h5>
+        
+                                <h5 class="color-rojo">5.0 <span class="icon icon-star color-rojo"></span> </h5>
+                            </div>
+        
+                            <div class="footer">
+                                <button class="btn"> <img src="../../../assets/img/btn-wsp.png" alt=""> </button>  
+                                <button class="btn"> <img src="../../../assets/img/btn-phone.png" alt=""> </button>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel__siguiente" aria-label="siguiente">
+                    <span class="icon icon-cheveron-right"></span>
+                </button>
+            </div>
+            
+        </div>
+
+
+        <!-- ! Recambios destacados ====================================================================== -->
+        <div class="section">
+            <div class="titulo"> 
+                <h2 >Recambios destacados</h2>
+
+                <button class="btn">VER TODOS</button>
+            </div>
+
+            <div class="carousel-container">
+                <button class="carousel__anterior" aria-label="anterior">
+                    <span class="icon icon-cheveron-left"></span>
+                </button>
+                
+                <div class="content">
+                    <div *ngFor="let item of recambios" class="card card-carousel-recambio">
+                        <div class="card-carousel-img">
+                            <div class="card-carousel-img-top">
+                                <button class="btn btn-bookmark"><span class="icon-bookmark text-black"></span></button>
+                            </div>
+                            <img [src]="CargarThumb(item.ad.thumbnail)" alt="">
+                        </div>
+                        <div class="card-carousel-body">
+        
+                            <h2 class="title"> {{item.ad?.title}} </h2>
+        
+                            <div class="body">
+                                <h5>Marca:  {{item.make?.name}} </h5>
+                                <h5>Estado: {{item.condition}}  </h5>
+                                <h5>Categoría: {{item.category}} </h5>
+                            </div>
+        
+                            <h1 class="text-black font-500"> {{item.price}} </h1>
+    
+                            <div class="grid gc-2x-g">
+                                <div class="flex-column">
+                                    <img src="../../../assets/img/btn-wsp.png" alt="">
+                                    <img src="../../../assets/img/btn-phone.png" alt="">
+                                </div>
+                                <div>
+                                    <h4>Vendedor</h4>
+                                    <h4 class="color-rojo">5.0 <span class="icon icon-star color-rojo"></span> </h4>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+
+                <button class="carousel__siguiente" aria-label="siguiente">
+                    <span class="icon icon-cheveron-right"></span>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- ! Mechanics destacados ====================================================================== -->
+        <div class="section">
+            <div class="titulo"> 
+                <h2 >Mechanics destacados</h2>
+
+                <button class="btn">VER TODOS</button>
+            </div>
+
+            <div class="carousel-container">
+                <button class="carousel__anterior" aria-label="anterior">
+                    <span class="icon icon-cheveron-left"></span>
+                </button>
+                
+                <div class="content">
+                    <div *ngFor="let item of [1,2,3,4,5,6,7]" class="card card-mechanics">
+                        <div class="card-mechanics-img">
+                            <div class="card-mechanics-img-top">
+                                <button class="btn btn-bookmark"><span class="icon-bookmark text-black"></span></button>
+                            </div>
+                            <img src="../../../assets/img/Img-carousel-1.jpg" alt="">
+                        </div>
+                        <div class="card-mechanics-body">
+        
+                            <h2 class="justify-self-center">Iluminación</h2>
+                            <button class="btn justify-self-end"> <span class="icon icon-cheveron-right"></span> </button>
+                        </div>
+        
+                    </div>
+                </div>
+
+                <button class="carousel__siguiente" aria-label="siguiente">
+                    <span class="icon icon-cheveron-right"></span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>

@@ -1,0 +1,79 @@
+<div class="temp-alquiler">
+
+    <!-- !SECTION HEADER ==================================== -->
+    <div class="section-header">
+        <h1 class="font-500 text-black">Encuentra lugares para alquilar un vehículo</h1>
+        <div class="group-input-icon-left">
+            <span class="icon-search small "></span>
+            <input type="text" placeholder="Busca cursos o programas" class="input-circle 
+                input-search">
+        </div>
+    </div>
+
+
+    <!-- !SECTION FILTRO ==================================== -->
+    <div class="section-filtro">
+        <div class="card card-filtro">
+            <div class="grid align-content-start gap-10">
+                <h1 class="text-black font-500">Filtrar por</h1>
+                <h4 class="color-rojo font-600">LIMPIAR FILTROS</h4>
+            </div>
+
+            <div>
+                <div class="section">
+                    <button>Ubicación <span class="icon icon-cheveron-down"></span></button>
+                </div>
+
+                <div class="section">
+                    <button>Precio <span class="icon icon-cheveron-down"></span></button>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+    <!-- !SECTION CONTENT ==================================== -->
+    <div class="section-content">
+        <div class="grid gc-2x-g align-items-center">
+            <h3>10000 resultados</h3>
+
+            <select class="justify-self-end" name="" id="">
+                <option value="">Ordenar</option>
+            </select>
+        </div>
+
+        <div class="content">
+
+            <div *ngFor="let item of rentals" class="card-h">
+                <div class="card-h-img">
+                    <img [src]="'https://cdn.autosmotos.es/'+item.thumbnail" (error)="onImgError($event)" alt="">
+                </div>
+
+                <div class="card-h-body">
+                    <div class="section">
+                        <h4 class="font-600"> {{item.title}} </h4>
+                        <button class="btn"><span class="icon icon-bookmark"></span></button>
+                    </div>
+
+                    <div class="section">
+                        <h5> {{item.rental_ad.address}} </h5>
+
+                        <h5 class="color-rojo">5.0 <span class="icon icon-star color-rojo"></span> </h5>
+                    </div>
+
+                    <div class="footer">
+                        <button class="btn"> <img src="../../../assets/img/btn-wsp.png" alt=""> </button>  
+                        <button class="btn"> <img src="../../../assets/img/btn-phone.png" alt=""> </button>  
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

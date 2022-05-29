@@ -1,0 +1,218 @@
+<div class="temp-signup">
+
+    <div class="content">
+        <img src="../../../assets/img/logo.svg" alt="">
+
+        <div class="group-fases">
+            <div class="circle" [class]="fase >=1?'active':''" > <span>1</span> </div>
+            <div class="circle" [class]="fase >=2?'active':''"> <span>2</span> </div>
+            <div class="circle" [class]="fase ==3?'active':''"> <span>3</span> </div>
+            <div class="line-1" [class]="fase >=2?'active':''"></div>
+            <div class="line-2" [class]="fase ==3?'active':''"></div>
+        </div>
+
+        <h1 class="text-black font-500">Registrate como Vendedor profesional</h1>
+
+
+        <!-- ! FASE 1 ################ -->
+        <div class="grid" style="min-width:700px" *ngIf="fase == 1">
+            <h2 class="text-black font-500">Información de la empresa</h2>
+
+            <div class="grid gc-2x-g gap-10">
+                <div>   
+                    <div class="form-group ">
+                        <input type="text" class="input-square"  [(ngModel)]="dealer.company_name" placeholder="Nombre de la empresa">
+                    </div>
+    
+                    <div class="form-group ">
+                        <input type="text"
+                            class="input-square"
+                            placeholder="CIF/NIF"
+                            [(ngModel)]="dealer.vat_number"
+                            (keypress)="SoloNumero($event)" 
+                            maxlength="14"
+                        >
+                    </div>
+    
+                    <div class="form-group">
+                        <select class="select-square" name="" id=""></select>
+                    </div>
+    
+                    <div class="form-group ">
+                        <input type="text" class="input-square" [(ngModel)]="dealer.address"   placeholder="Dirección">
+                    </div>
+    
+                    <div class="form-group ">
+                        <input type="text"
+                            class="input-square"
+                            placeholder="Código postal"
+                            [(ngModel)]="dealer.zip_code" 
+                            (keypress)="SoloNumero($event)" 
+                            maxlength="14"
+                        >
+                    </div>
+    
+                    <div class="form-group ">
+                        <input type="text" class="input-square" [(ngModel)]="dealer.city"   placeholder="Ciudad">
+                    </div>
+                </div>
+    
+                <div>
+                    <div class="form-group ">
+                        <input type="text" class="input-square"  [(ngModel)]="dealer.email_address" placeholder="Correo electrónico">
+                    </div>
+    
+                    <div class="form-group ">
+                        <input type="text"
+                            class="input-square"
+                            placeholder="Teléfono"
+                            [(ngModel)]="dealer.phone_number" 
+                            (keypress)="SoloNumero($event)" 
+                            maxlength="14"
+                        >
+                    </div>
+    
+                    <div class="form-group ">
+                        <textarea class="input-square"  [(ngModel)]="dealer.description" placeholder="Descripción"  name="" id="" cols="30" rows="5"></textarea>
+                    </div>
+
+                    <div class="form-group ">
+                        <button class="btn color-rojo" (click)="[SelectImg()]"> SUBIR LOGO </button>
+
+                        <div class="content-img">
+                            <img [src]="user_imagen_show.img" *ngIf="user_imagen_show?.img" alt="">
+                            <input type="file" id="img" (change)="[CargarImagen($event)]" style="display:none" accept="image/png, image/gif, image/jpeg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ! FASE 2 ################ -->
+        <div class="grid" style="min-width:700px" *ngIf="fase == 2">
+            <h2 class="text-black font-500">Información de la tienda</h2>
+
+            <div class="grid gc-2x-g gap-10">
+                <div>   
+                    <div class="form-group ">
+                        <input type="text" class="input-square" [(ngModel)]="dealer_show.name"  placeholder="Nombre de la empresa">
+                    </div>
+    
+                    <div class="form-group">
+                        <select class="select-square" name="" id=""></select>
+                    </div>
+    
+                    <div class="form-group ">
+                        <input type="text" class="input-square" [(ngModel)]="dealer_show.address"  placeholder="Dirección">
+                    </div>
+    
+                    <div class="form-group ">
+                        <input type="text"
+                            class="input-square"
+                            placeholder="Código postal"
+                            [(ngModel)]="dealer_show.zip_code"
+                            (keypress)="SoloNumero($event)" 
+                            maxlength="14"
+                        >
+                    </div>
+    
+                    
+                </div>
+    
+                <div>
+                    <div class="form-group ">
+                        <input type="text" class="input-square" [(ngModel)]="dealer_show.city"  placeholder="Ciudad">
+                    </div>
+    
+                    <div class="form-group ">
+                        <input type="text" class="input-square"  [(ngModel)]="dealer_show.email_address" placeholder="Correo electrónico">
+                    </div>
+    
+                    <div class="form-group ">
+                        <input type="text"
+                            class="input-square"
+                            placeholder="Teléfono"
+                            [(ngModel)]="dealer_show.mobile_number"
+                            (keypress)="SoloNumero($event)" 
+                            maxlength="14"
+                        >
+                    </div>
+
+                    <div class="form-group ">
+                        <input type="text"
+                            class="input-square"
+                            placeholder="Número de Whatsapp"
+                            [(ngModel)]="dealer_show.whatsapp_number"
+                            (keypress)="SoloNumero($event)" 
+                            maxlength="14"
+                        >
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ! FASE 3 ################ -->
+        <div class="grid" style="min-width:700px" *ngIf="fase == 3">
+            <h2 class="text-black font-500">Información de la tienda</h2>
+
+            <div class="grid gc-2x-g gap-10">
+                <div>   
+                    <div class="form-group ">
+                        <input type="text" class="input-square"  [(ngModel)]="user.first_name"  placeholder="Nombre">
+                    </div>
+    
+                    <div class="form-group ">
+                        <input type="text" class="input-square"  [(ngModel)]="user.last_name" placeholder="Apellido">
+                    </div>
+    
+                    <div class="form-group ">
+                        <input type="text" class="input-square"  [(ngModel)]="user.email" placeholder="Dirección de correo electrónico">
+                    </div>
+                </div>
+    
+                <div>
+                    <div class="form-group ">
+                        <input type="text"
+                            class="input-square"
+                            placeholder="Código postal"
+                            [(ngModel)]="user.zip_code"
+                            (keypress)="SoloNumero($event)" 
+                            maxlength="14"
+                        >
+                    </div>
+    
+                    <div class="form-group ">
+                        <input type="password" class="input-square"  [(ngModel)]="user.password"   placeholder="Contraseña">
+                    </div>
+    
+                    <div class="form-group ">
+                        <input type="password" class="input-square"  [(ngModel)]="user.password_confirmation"  placeholder="Repetir contraseña">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <h4 *ngIf="error == 1" class="text-center color-rojo">Complete todos los campos.</h4>
+    <h4 *ngIf="error == 2" class="text-center color-rojo">Ha ocurrido un error.</h4>
+
+    <div class="footer">
+
+        <button *ngIf="fase == 1" class="btn-primary justify-self-center" (click)="SignUpDealer()" >SIGUIENTE <span *ngIf="loading" class="icon icon-refresh loader"></span> </button>
+        <button *ngIf="fase == 2" class="btn-primary justify-self-center" (click)="SignUpDealerShowRooms()" >SIGUIENTE <span *ngIf="loading" class="icon icon-refresh loader"></span> </button>
+        <button *ngIf="fase == 3" class="btn-primary justify-self-center" (click)="SignUp()" >SIGUIENTE <span *ngIf="loading" class="icon icon-refresh loader"></span> </button>
+
+        <div class="login">
+            <p>¿Ya tienes cuenta?</p>
+            <button class="btn">Inicia sesión</button>
+        </div>
+
+    </div>
+
+</div>
