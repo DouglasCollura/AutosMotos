@@ -27,6 +27,12 @@ export class CompraComponent implements OnInit {
 
     ngOnInit(): void {
 
+        this.length_comparar = this.CompararService.vehiculos.length
+
+        this.CompararService.arr.subscribe(()=>{
+            this.length_comparar = 0;
+            console.log($('.card-carousel-top-img').find('.btn-primary').removeClass('btn-primary').addClass('btn'))
+        })
 
         this.rutaActiva.queryParams
         .subscribe((params:any) => {
@@ -38,6 +44,9 @@ export class CompraComponent implements OnInit {
             if(!VacioU(params.id_model)){
                 this.filtro+='filters[model_id]='+params.id_model+'&'
             }
+            if(!VacioU(params.country)){
+                this.filtro+='filters[country]='+params.country+'&'
+            }
 
             if(params.type){
                 if(params.type == 'auto'){
@@ -48,22 +57,6 @@ export class CompraComponent implements OnInit {
                 }
             }
         })
-        // if(this.rutaActiva.snapshot.params['type']){
-        //     this.type =this.rutaActiva.snapshot.params['type']
-        //     console.log(this.rutaActiva.snapshot.params['type'])
-        //     if(this.type == 'auto'){
-        //         this.GetAutos()
-        //     }
-        //     if(this.type == 'truck'){
-        //         this.TruckService.Get().then(res=>{
-        //             console.log(res.data.data)
-        //             this.res = res.data.data
-        //         })
-        //     }
-            
-        // }else{
-        //     this.GetAutos()
-        // }
 
     }
 
@@ -73,6 +66,7 @@ export class CompraComponent implements OnInit {
     type:string="";
     //?GESTION===================================================================================
     filtro:string="";
+    length_comparar:number=0;
 
     //?CONTROL===================================================================================
 
@@ -95,6 +89,24 @@ export class CompraComponent implements OnInit {
         })
     }
 
+    AddComparar(item:any, ev:any){
+        console.log(item)
+        console.log(this.CompararService.vehiculos.length)
+        
+        if($(ev.target).hasClass('btn-primary')){
+            
+        }else{
+            if(this.CompararService.vehiculos.length <2){
+                this.CompararService.vehiculos.push(item)
+                this.length_comparar = this.CompararService.vehiculos.length
+                $(ev.target).addClass('btn-primary')
+                $(ev.target).removeClass('btn')
+            }
+        }
+
+        
+    }
+
     //?GESTION============================================================
     GoShow(info:any){
         this.ShowVehicleService.SetInfo(info);
@@ -114,6 +126,58 @@ export class CompraComponent implements OnInit {
             $("#"+id).addClass("down")
         }
 
+    }
+
+    SelectMark(item:any, ev:any){
+        console.log(item)
+        let type="";
+        let id="";
+        let id_ad="";
+        let marks=[];
+        if(item?.type){
+            type=item?.type;
+            id=item?.id
+            // console.log('type: ',item?.type)
+            // console.log('id: ',item?.id)
+            if(item?.type == 'auto'){
+                id_ad=item?.auto_ad.id
+                // console.log('id_ad',item?.auto_ad.id)
+            }
+            if(item?.type == 'truck'){
+                id_ad=item?.truck_ad.id
+                // console.log('id_ad',item?.truck_ad.id)
+            }
+            if(item?.type == 'mechanic'){
+                id_ad=item?.mechanic_ad.id
+                // console.log('id_ad',item?.mechanic_ad.id)
+            }
+        }else{
+            
+            if(item?.ad?.type){
+                // console.log('type: ',item?.ad?.type)
+                // console.log('id: ',item?.id)
+                // console.log('id_ad',item?.ad.id)
+                type=item?.ad?.type;
+                id=item?.id
+                id_ad=item?.ad.id
+
+            }else{
+                console.log("asd")
+            }
+        }
+
+        console.log(type,id,id_ad)
+        if(localStorage.getItem("marks")){
+            marks=JSON.parse(localStorage.getItem("marks") || '{}' )
+        }
+        
+        console.log($('#btn'+ev))
+        $('#btn'+ev).removeClass('btn-bookmark').addClass('btn-bookmark-primary')
+        marks.push({type:type,id:id,id_ad:id_ad})
+        $(ev.target)
+        console.log(marks)
+        localStorage.setItem('marks', JSON.stringify(marks));
+        
     }
 
 }

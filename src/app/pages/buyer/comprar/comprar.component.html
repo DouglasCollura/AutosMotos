@@ -4,14 +4,15 @@
 
             <div class="section-photo">
                 <div class="photo-select">
-                    <div class="chevron-left"> <span class="icon icon-cheveron-left"></span> </div>
-                    <img src="../../../../assets/img/Autos/auto1.jpg" alt="">
-                    <div class="chevron-rigth"><span class="icon icon-cheveron-right"></span> </div>
+                    <div class="chevron-left" (click)="imgLeft()" > <span class="icon icon-cheveron-left"></span> </div>
+                    <img [src]="image_select" alt="">
+                    <div class="chevron-rigth" (click)="imgRight()" ><span class="icon icon-cheveron-right"></span> </div>
                 </div>
 
                 <div class="group-photo"  >
-                    <div class="photo" *ngFor="let item of ads.images">
-                        <img [src]="'https://cdn.autosmotos.es/'+item.path" alt="">
+                    <div class="photo" (click)="SelectImg(i)" [id]="i" *ngFor="let item of ads?.images; let i = index">
+                        <img  [src]="CargarThumb(item.path)" alt="">
+                        <div class="filter" [ngStyle]="{'display':i ==0 ? 'block' : 'none' }" ></div>
                     </div>
                 </div>
             </div>
@@ -37,15 +38,15 @@
 
                 <div class="card-comentario">
                     <div class="grid gap-10">
-                        <h3> <span class="title">Vendedor:</span> {{vehiculo.dealer?.company_name}} </h3>
+                        <h3> <span class="title">Vendedor:</span> {{vehiculo?.dealer?.company_name}} </h3>
                         <div class="column-space-between">
-                            <h3>Ubicación: {{vehiculo.dealer?.address}} </h3>
+                            <h3>Ubicación: {{vehiculo?.dealer?.address}} </h3>
                             <button class="btn vermas">Ver mapa</button>
                         </div>
                         <h3>Web: <span class="color-rojo"> www.xxxxx.com</span></h3>
                         <h3>Otros modos de contacto</h3>
 
-                        <h3> <span class="icon icon-mail"></span> {{vehiculo.dealer?.email_address}}  </h3>
+                        <h3> <span class="icon icon-mail"></span> {{vehiculo?.dealer?.email_address}}  </h3>
                     </div>
                     <h4><span class="color-rojo">5.0 <span class="icon icon-star color-rojo"></span> </span> </h4>
                     
@@ -60,7 +61,7 @@
             <div class="section">
                 <h2>Descripción</h2>
                 <p> 
-                    {{vehiculo.ad.description}}
+                    {{vehiculo?.ad.description}}
                 </p> 
             </div>
 
@@ -69,25 +70,25 @@
 
                 <div class="caracteristicas">
                     <div>
-                        <h4>Tipo de vehículo: {{vehiculo.ad?.type}}</h4>
-                        <h4>Marca: {{vehiculo.make?.name}} </h4>
-                        <h4>Modelo: {{vehiculo.model?.name}}</h4>
-                        <h4>Condición: {{vehiculo.condition}} </h4>
-                        <h4>Kilometraje: {{vehiculo.mileage}} </h4>
-                        <h4>Combustible: {{vehiculo.fuel_type?.external_name}} </h4>
-                        <h4>Transmisión: {{vehiculo.transmission_type?.external_name}} </h4>
+                        <h4>Tipo de vehículo: {{vehiculo?.ad?.type}}</h4>
+                        <h4>Marca: {{vehiculo?.make?.name}} </h4>
+                        <h4>Modelo: {{vehiculo?.model?.name}}</h4>
+                        <h4>Condición: {{vehiculo?.condition}} </h4>
+                        <h4>Kilometraje: {{vehiculo?.mileage}} </h4>
+                        <h4>Combustible: {{vehiculo?.fuel_type?.external_name}} </h4>
+                        <h4>Transmisión: {{vehiculo?.transmission_type?.external_name}} </h4>
                         <h4>Tracción /Drivetrain: xxxxx</h4>
-                        <h4>Potencia (HP): {{vehiculo.power_hp}}</h4>
-                        <h4>Capacidad cilíndrica: {{vehiculo.engine_displacement}} </h4>
+                        <h4>Potencia (HP): {{vehiculo?.power_hp}}</h4>
+                        <h4>Capacidad cilíndrica: {{vehiculo?.engine_displacement}} </h4>
                     </div>
 
                     <div>
-                        <h4>Color exterior: {{vehiculo.exterior_color}} </h4>
-                        <h4>Color interior: {{vehiculo.interior_color}}</h4>
-                        <h4>Vendedor: {{vehiculo.dealer?.company_name}}</h4>
+                        <h4>Color exterior: {{vehiculo?.exterior_color}} </h4>
+                        <h4>Color interior: {{vehiculo?.interior_color}}</h4>
+                        <h4>Vendedor: {{vehiculo?.dealer?.company_name}}</h4>
                         <h4>Inspección validada: xxxxxxxx</h4>
-                        <h4>Puertas: {{vehiculo.doors}}  </h4>                   
-                        <h4>Plazas: {{vehiculo.seats}}</h4>                   
+                        <h4>Puertas: {{vehiculo?.doors}}  </h4>                   
+                        <h4>Plazas: {{vehiculo?.seats}}</h4>                   
                         <h4>Lugares para dormir: xxxxx</h4>                   
                         <h4>Engranajes: xxxxx</h4>                   
                         <h4>Cilindros: xxxxx</h4>                   

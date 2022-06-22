@@ -67,7 +67,7 @@ export class SignupProfComponent implements OnInit {
 
     //?CONTROL===================================================================================
 
-    fase:number=3;
+    fase:number=1;
     user_imagen_show:any;
     img_user:any;
     formData = new FormData();

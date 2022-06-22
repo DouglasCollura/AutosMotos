@@ -9,8 +9,15 @@ export class CompararService {
 
 
     @Output() change: EventEmitter<any> = new EventEmitter();
+    @Output() arr: EventEmitter<any> = new EventEmitter();
 
     isOpen = false;
+    vehiculos:any=[]
+
+    limpar(){
+        this.vehiculos=[];
+        this.arr.emit({ res:true});
+    }
 
     toggle() {
         this.isOpen = !this.isOpen;

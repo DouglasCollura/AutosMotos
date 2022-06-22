@@ -58,7 +58,14 @@
             <div class="bottom">
                 <div class="form-group">
                     <label for="">País</label>
-                    <select class="select-square" name="" id=""></select>
+                    <select class="select-square" [(ngModel)]="pais" name="" id=""> 
+                        <option value="" >  Seleccione </option>
+                        <option value="Romania" >  Romania </option>
+                        <option value="España" >  España </option>
+                        <option value="Alemania" >  Alemania </option>
+                        <option value="Italia" >  Italia </option>
+                        <option value="Reino Unido" >  Reino Unido </option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="">Marca</label>
@@ -104,9 +111,9 @@
                     <div *ngFor="let item of ads_auto" class="card card-carousel">
                         <div class="card-carousel-img">
                             <div class="card-carousel-img-top">
-                                <button class="btn btn-bookmark"><span class="icon-bookmark text-black"></span></button>
+                                <button class="btn btn-bookmark" (click)="SelectMark(item)" ><span class="icon-bookmark text-black"></span></button>
                             </div>
-                            <img [src]="'https://cdn.autosmotos.es/'+item.ad.thumbnail" alt="">
+                            <img (click)="GoShow(item.id, item.ad.id)" [src]="'https://cdn.autosmotos.es/'+item.ad.thumbnail" alt="">
                         </div>
                         <div class="card-carousel-body">
         
@@ -163,9 +170,9 @@
                     <div *ngFor="let item of ultimos" class="card card-carousel">
                         <div class="card-carousel-img">
                             <div class="card-carousel-img-top">
-                                <button class="btn btn-bookmark"><span class="icon-bookmark text-black"></span></button>
+                                <button class="btn btn-bookmark" (click)="SelectMark(item)" ><span class="icon-bookmark text-black"></span></button>
                             </div>
-                            <img [src]="CargarThumb(item.thumbnail)"  alt="">
+                            <img (click)="GoShow(item.id, item.auto_ad.ad_id)" [src]="CargarThumb(item.thumbnail)"  alt="">
                         </div>
                         <div class="card-carousel-body">
         
@@ -226,7 +233,7 @@
                         <div class="card-h-body">
                             <div class="section">
                                 <h4 class="title" > {{item.title }} </h4>
-                                <button class="btn"><span class="icon icon-bookmark"></span></button>
+                                <button class="btn"  (click)="SelectMark(item)" ><span class="icon icon-bookmark"></span></button>
                             </div>
         
                             <div class="section">
@@ -268,7 +275,7 @@
                     <div *ngFor="let item of recambios" class="card card-carousel-recambio">
                         <div class="card-carousel-img">
                             <div class="card-carousel-img-top">
-                                <button class="btn btn-bookmark"><span class="icon-bookmark text-black"></span></button>
+                                <button class="btn btn-bookmark"  (click)="SelectMark(item)" ><span class="icon-bookmark text-black"></span></button>
                             </div>
                             <img [src]="CargarThumb(item.ad.thumbnail)" alt="">
                         </div>

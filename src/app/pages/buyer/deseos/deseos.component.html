@@ -17,29 +17,29 @@
 
     <div class="section-content">
 
-        <div class="card-v" *ngFor="let item of [1,2,3,4]" >
+        <div class="card-v" *ngFor="let item of autos" >
             <div class="section-img">
-                <img src="../../../../assets/img/Autos/auto1.jpg" alt="">
+                <img [src]="CargarThumb(item.ad.thumbnail)" alt="">
                 <button class="btn btn-bookmark"><span class="icon-bookmark text-black"></span></button>
             </div>
 
             <div class="section-body">
-                <h2 class="title"> titulo </h2>
+                <h2 class="title"> {{item.ad?.title}} </h2>
 
                 <div class="grid gc-2x-g">
                     <div class="grid gap-10">
-                        <h4>Marca: </h4>
+                        <h4>Marca: {{item.make?.name}} </h4>
 
-                        <h4>Categoría:  </h4>
+                        <h4>Categoría: {{item.category}}  </h4>
                     </div>
 
                     <div class="grid gap-10">
-                        <h4>Estado: </h4>
+                        <h4>Estado: {{item.condition}} </h4>
                     </div>
 
                 </div>
                 
-                <h1 class="title"> item.price </h1>
+                <h1 class="title"> {{item.price}} </h1>
 
                 <div class="footer">
                     <button><img src="../../../../assets/img/btn-wsp.png" alt=""></button> 

@@ -127,7 +127,7 @@
             <div class="card card-comparar">
                 <button (click)="openComparar()" class="btn btn-block btn-secondary">comparar</button>
 
-                <h4>2 artículos agregados</h4>
+                <h4>{{length_comparar}} artículos agregados <span *ngIf="length_comparar == 2" >(full)</span> </h4>
 
             </div>
         </div>
@@ -145,11 +145,11 @@
 
             <div class="content">
 
-                <div  *ngFor="let info of res" class="card card-carousel">
+                <div  *ngFor="let info of res; let i =index" class="card card-carousel">
                     <div class="card-carousel-img">
                         <div class="card-carousel-top-img">
-                            <button class="btn">+ COMPARAR</button>
-                            <button class="btn btn-bookmark"><span class="icon-bookmark text-black"></span></button>
+                            <button class="btn" (click)="AddComparar(info, $event)" >+ COMPARAR</button>
+                            <button class="btn btn-bookmark" [id]="'btn'+i" (click)="SelectMark(info,i)"><span class="icon-bookmark text-black"></span></button>
                         </div>
                         <img (click)="GoShow(info)" [src]="'https://cdn.autosmotos.es/'+info.ad.thumbnail"  alt="">
                     </div>

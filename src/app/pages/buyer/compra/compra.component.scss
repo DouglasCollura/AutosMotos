@@ -1,3 +1,6 @@
+@import "/src/assets/theme/variables";
+
+
 .temp-compra{
     min-height: 100%;
     display: grid;
@@ -112,9 +115,14 @@
     padding: 10px;
     width: 100%;
     justify-content: space-between;
+    z-index: 2;
+
+    .btn-primary{
+        padding: 5px 15px;
+    }
 }
 
-.card-carousel-top-img button{
+.card-carousel-top-img button.btn{
     background-color: rgba(255, 255, 255, 0.8);
     padding: 5px 20px;
     color: black;
@@ -123,6 +131,12 @@
 
 .btn-bookmark{
     padding: 5px !important;
+
+    &-primary{
+        @extend .btn-bookmark;
+        background: $rojo !important;
+        color: white !important;
+    }
 }
 .btn-bookmark span{
     font-size: 18px;
