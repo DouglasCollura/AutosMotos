@@ -32,8 +32,8 @@
                 <h1 class="color-rojo" style="font-weight: 500" > {{vehiculo?.price}} $ </h1>
 
                 <div class="grid gap-20">
-                    <button class="btn-primary btn-block"> CONTACTAR POR WPP</button>
-                    <button class="btn-primary-claro btn-block"><a href="tel:+5804125459173">CONTACTAR POR TEL</a> </button>
+                    <button class="btn-primary btn-block"><a [href]="'tel:'+ads?.dealerShowRoom?.whatsapp_number">CONTACTAR POR WPP</a> </button>
+                    <button class="btn-primary-claro btn-block"><a [href]="'tel:'+ads?.dealerShowRoom?.mobile_number">CONTACTAR POR TEL</a> </button>
                 </div>
 
                 <div class="card-comentario">

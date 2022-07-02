@@ -118,6 +118,10 @@ export class CompraComponent implements OnInit {
         this.ShowVehicleService.SetInfo(info);
         this.router.navigate(['compra/comprar'],{queryParams: { id: info.id, id_ad:info.ad.id }})
     }
+
+    GoToWts(phone:any){
+        window.open('https://api.whatsapp.com/send?phone='+phone, "_blank");
+    }
     
     //?CONTROL==============================================================================
 

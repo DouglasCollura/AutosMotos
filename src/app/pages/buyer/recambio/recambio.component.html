@@ -74,8 +74,8 @@
                     <h1 class="title"> {{item.price}} </h1>
 
                     <div class="footer">
-                        <button><img src="../../../../assets/img/btn-wsp.png" alt=""></button> 
-                        <button><img src="../../../../assets/img/btn-phone.png" alt=""> </button> 
+                        <a [href]="'tel:'+item.mechanic_ad.mobile_number" ><img src="../../../../assets/img/btn-wsp.png" alt=""></a> 
+                        <button  (click)="GoToWts(item.mechanic_ad.whatsapp_number)"  ><img src="../../../../assets/img/btn-phone.png" alt=""> </button> 
                         <div class="grid gap-10">
                             <h4>Vendedor</h4>
                             <span class="color-rojo">5.0 <span class="icon-star color-rojo"></span></span>  

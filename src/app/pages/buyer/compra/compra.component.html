@@ -170,8 +170,8 @@
                     </div>
                     
                     <div class="card-carousel-footer">
-                        <button><img src="../../../../assets/img/btn-wsp.png" alt=""></button> 
-                        <button><img src="../../../../assets/img/btn-phone.png" alt=""> </button> 
+                        <button  (click)="GoToWts(info.dealer_show_room.whatsapp_number)" >  <img src="../../../../assets/img/btn-wsp.png" alt=""></button> 
+                        <a [href]="'tel:'+info.dealer_show_room.mobile_number"><img src="../../../../assets/img/btn-phone.png" alt=""> </a> 
                         <div class="grid gap-10">
                             <h4>Vendedor</h4>
                             <span class="color-rojo">5.0 <span class="icon-star color-rojo"></span></span>  

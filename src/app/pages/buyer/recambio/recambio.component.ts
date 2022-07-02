@@ -56,6 +56,10 @@ export class RecambioComponent implements OnInit {
         
     }
 
+    GoToWts(phone:any){
+        window.open('https://api.whatsapp.com/send?phone='+phone, "_blank");
+    }
+
     GoShow(info:any){
         // this.ShowVehicleService.SetInfo(info);
         this.router.navigate(['compra/comprar'],{queryParams: { id: info.id, id_ad:info.ad.id }})
