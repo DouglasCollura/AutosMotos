@@ -14,7 +14,7 @@ export class SignupService {
     url = environment.serverUrl;
 
     SignUp(datos:any){
-        const send = this.http.post(`${this.url}users`,datos).toPromise()
+        const send = this.http.post(`${this.url}users/create`,datos).toPromise()
         return send;
     }
         
