@@ -45,7 +45,7 @@
     padding: 0px;
     font-weight: 400;
     color: $textoGris;
-    @include font-size(15px);
+    @include font-size(14px);
 }
 
 html {
@@ -64,11 +64,11 @@ body {
 
 /* 24, 20, 18, 16, 14,   */
 h1,h2,h3,h4,h5{margin: 0px; padding: 0px;}
-h1{@include font-size(22px)}
-h2{@include font-size(18px)}
-h3{@include font-size(16px)}
-h4{@include font-size(14px)}
-h5{@include font-size(12px)}
+h1{@include font-size(21px)}
+h2{@include font-size(17px)}
+h3{@include font-size(15px)}
+h4{@include font-size(13px)}
+h5{@include font-size(11px)}
 
 
 ul{

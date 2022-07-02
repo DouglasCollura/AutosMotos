@@ -17,6 +17,7 @@ export class AdsService {
         const send = this.http.get(`${this.url}ads`).toPromise()
         return send;
     }
+    
 
     GetUltimos(): Promise<any> {
         const send = this.http.get(`${this.url}ads?orderBy=id&orderDirection=desc&per_page=15`).toPromise()

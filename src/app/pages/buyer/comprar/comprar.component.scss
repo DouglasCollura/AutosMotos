@@ -83,6 +83,7 @@
         justify-content: start;
         overflow: hidden;
         max-width: 600px;
+        overflow-x: auto;
         .photo{
             height: 100%;
             width: 95px;
@@ -172,7 +173,7 @@
 .card-comentario{
     width: 100%;
     height: max-content;
-    background: $grisClaro;
+    background: #cecece3b;
     padding: 10px;
     display: grid;
     grid-template-columns: auto 80px;
@@ -187,6 +188,11 @@
         font-weight: 600 !important;
         color: black !important;
     }
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 
 .section-opinion{
@@ -214,6 +220,8 @@
 .vermas{
     padding: 0px !important;
     color: $rojo;
+    align-self: start;
+    justify-self: end;
     text-decoration: underline;
 }
 
@@ -223,4 +231,15 @@
     span{
         color: white !important;
     }
+}
+
+
+.title-info{
+    color: $textoGris !important;
+    font-weight: 600;
+}
+
+.description{
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
 }

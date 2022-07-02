@@ -50,9 +50,14 @@ export class CompraComponent implements OnInit {
 
             if(params.type){
                 if(params.type == 'auto'){
+                    let marks=JSON.parse(localStorage.getItem("marks") || '{}' )
+                    this.marks=marks.filter((e:any)=>{ return e.type == 'auto' })
+                    console.log(marks.filter((e:any)=>{ return e.type == 'auto' }))
                     this.GetAutos(this.filtro)
                 }
                 if(params.type == 'truck'){
+                    let marks=JSON.parse(localStorage.getItem("marks") || '{}' )
+                    this.marks=marks.filter((e:any)=>{ return e.type == 'truck' })
                     this.GetTruck(this.filtro)
                 }
             }
@@ -67,7 +72,7 @@ export class CompraComponent implements OnInit {
     //?GESTION===================================================================================
     filtro:string="";
     length_comparar:number=0;
-
+    marks:any;
     //?CONTROL===================================================================================
 
     
@@ -79,6 +84,7 @@ export class CompraComponent implements OnInit {
         this.AutosService.GetAutos(filtro).then((res:any)=>{
             this.res = res.data.data;
             console.log(res)
+
         })
     }
 
@@ -180,4 +186,12 @@ export class CompraComponent implements OnInit {
         
     }
 
+    filterMark(id:any){
+        for (const key of this.marks) {
+            if(key.id_ad == id){
+                return true
+            }
+        }
+        return false;
+    }
 }

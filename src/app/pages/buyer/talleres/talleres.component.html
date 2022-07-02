@@ -48,7 +48,7 @@
 
             <div class="content">
 
-                <div *ngFor="let item of talleres" class="card-h">
+                <div *ngFor="let item of talleres; let i =index" class="card-h">
                     <div class="card-h-img">
                         <img [src]="'https://cdn.autosmotos.es/'+item.thumbnail" alt="">
                     </div>
@@ -56,7 +56,7 @@
                     <div class="card-h-body">
                         <div class="section">
                             <h4 class="font-600"> {{item.title}} </h4>
-                            <button class="btn"><span class="icon icon-bookmark"></span></button>
+                            <button class="btn" (click)="SelectMark(item,i)" [id]="'btn'+i"><span class="icon icon-bookmark"></span></button>
                         </div>
 
                         <div class="section">

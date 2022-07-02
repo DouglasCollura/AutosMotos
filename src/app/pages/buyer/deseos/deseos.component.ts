@@ -25,25 +25,32 @@ export class DeseosComponent implements OnInit {
     ngOnInit(): void {
         this.marks=JSON.parse(localStorage.getItem("marks") || '{}' )
 
-        this.marks.forEach( (element:any) => {
-            console.log(element.type)
-            if(element.type == 'auto'){
-                this.AutosService.GetById(element.id).then(res=>{
-                    console.log(res.data.data[0])
-                    this.autos.push(res.data.data[0]);
+        this.marks.forEach( (e:any) =>{
 
-                })
-            }
-
-            if(element.type == 'truck'){
-                this.TruckService.GetById(element.id_ad).then(res=>{
-
-                    this.autos.push(res.data.data[0]);
-
-                })
-            }
-            
+            this.AdsService.GetById(e.id_ad).then(res=>{
+                console.log(res.data.data[0])
+                this.autos.push(res.data.data[0]);
+            })
         })
+        // this.marks.forEach( (element:any) => {
+        //     console.log(element.type)
+        //     if(element.type == 'auto'){
+        //         this.AutosService.GetById(element.id).then(res=>{
+        //             console.log(res.data.data[0])
+        //             this.autos.push(res.data.data[0]);
+
+        //         })
+        //     }
+
+        //     if(element.type == 'truck'){
+        //         this.TruckService.GetById(element.id_ad).then(res=>{
+
+        //             this.autos.push(res.data.data[0]);
+
+        //         })
+        //     }
+            
+        // })
 
     }
 
@@ -61,5 +68,10 @@ export class DeseosComponent implements OnInit {
         }else{
             return 'https://cdn.autosmotos.es/'+foto
         }
+    }
+
+    onImgError(event:any){
+        event.target.src = '../../../assets/img/logo.svg'
+       //Do other stuff with the event.target
     }
 }

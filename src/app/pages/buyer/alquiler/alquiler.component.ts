@@ -34,4 +34,30 @@ export class AlquilerComponent implements OnInit {
        //Do other stuff with the event.target
     }
 
+
+    SelectMark(item:any, ev:any){
+        console.log(item)
+        let type="";
+        let id="";
+        let id_ad="";
+        let marks=[];
+
+        type=item?.type;
+        id=item?.rental_ad.id
+        id_ad=item?.id
+
+        console.log(type,id,id_ad)
+        if(localStorage.getItem("marks")){
+            marks=JSON.parse(localStorage.getItem("marks") || '{}' )
+        }
+        
+        console.log($('#btn'+ev))
+        $('#btn'+ev).removeClass('btn-bookmark').addClass('btn-bookmark-primary')
+        marks.push({type:type,id:id,id_ad:id_ad})
+        $(ev.target)
+        console.log(marks)
+        localStorage.setItem('marks', JSON.stringify(marks));
+        
+    }
+
 }

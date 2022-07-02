@@ -149,7 +149,7 @@
                     <div class="card-carousel-img">
                         <div class="card-carousel-top-img">
                             <button class="btn" (click)="AddComparar(info, $event)" >+ COMPARAR</button>
-                            <button class="btn btn-bookmark" [id]="'btn'+i" (click)="SelectMark(info,i)"><span class="icon-bookmark text-black"></span></button>
+                            <button class="btn " [class]="filterMark(info.ad_id)?'btn-bookmark-primary':'btn-bookmark'"  [id]="'btn'+i" (click)="SelectMark(info,i)"><span class="icon-bookmark text-black"></span></button>
                         </div>
                         <img (click)="GoShow(info)" [src]="'https://cdn.autosmotos.es/'+info.ad.thumbnail"  alt="">
                     </div>

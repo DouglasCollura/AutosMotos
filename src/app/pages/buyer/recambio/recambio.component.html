@@ -48,10 +48,10 @@
 
         <div class="content">
 
-            <div class="card-v" *ngFor="let item of shops">
+            <div class="card-v" *ngFor="let item of shops; let i =index">
                 <div class="section-img">
-                    <img [src]="'https://cdn.autosmotos.es/'+item.ad.thumbnail" alt="">
-                    <button class="btn btn-bookmark"><span class="icon-bookmark text-black"></span></button>
+                    <img  (click)="GoShow(item)" [src]="'https://cdn.autosmotos.es/'+item.ad.thumbnail" alt="">
+                    <button class="btn btn-bookmark" (click)="SelectMark(item,i)" [id]="'btn'+i"><span class="icon-bookmark text-black"></span></button>
 
                 </div>
 
