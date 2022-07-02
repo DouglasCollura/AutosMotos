@@ -216,7 +216,7 @@
     <h4 *ngIf="error == 1" class="text-center color-rojo">Complete todos los campos.</h4>
     <h4 *ngIf="error == 2" class="text-center color-rojo">Ha ocurrido un error.</h4>
 
-    <div class="footer">
+    <div class="footer" >
 
         <button *ngIf="fase == 1" class="btn-primary justify-self-center" (click)="SignUpDealer()" >SIGUIENTE <span *ngIf="loading" class="icon icon-refresh loader"></span> </button>
         <button *ngIf="fase == 2" class="btn-primary justify-self-center" (click)="SignUpDealerShowRooms()" >SIGUIENTE <span *ngIf="loading" class="icon icon-refresh loader"></span> </button>

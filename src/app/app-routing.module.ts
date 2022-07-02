@@ -6,6 +6,7 @@ import { SellerLayoutComponent } from './pages/layout/seller-layout/seller-layou
 import { LoginComponent } from './pages/login/login.component';
 import { SignupProfComponent } from './pages/signup-prof/signup-prof.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { AnuncioComponent } from './pages/seller/anuncio/anuncio.component';
 
 const routes: Routes = [
  
@@ -41,6 +42,7 @@ const routes: Routes = [
     component:SellerLayoutComponent,
     loadChildren: () => import('./pages/seller/seller/seller.module').then( m => m.SellerModule)
   },
+
   
 ];
 
