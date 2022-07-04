@@ -15,6 +15,13 @@ import { InicioComponent } from './pages/seller/inicio/inicio.component';
 import { AlquilerComponent } from './pages/seller/alquiler/alquiler.component';
 import { RecambiosComponent } from './pages/seller/recambios/recambios.component';
 import { RepuestosComponent } from './pages/seller/repuestos/repuestos.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AnuncioComponent } from './pages/seller/anuncio/anuncio.component';
+import { ResenasComponent } from './pages/seller/resenas/resenas.component';
+import { MiTiendaComponent } from './pages/seller/mi-tienda/mi-tienda.component';
+import { ComponentsModule } from './components/components.module';
+import { ImportacionComponent } from './pages/seller/importacion/importacion.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +37,20 @@ import { RepuestosComponent } from './pages/seller/repuestos/repuestos.component
     AlquilerComponent,
     RecambiosComponent,
     RepuestosComponent,
+    AnuncioComponent,
+    ResenasComponent,
+    MiTiendaComponent,
+    ImportacionComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule,
+    BrowserAnimationsModule,
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

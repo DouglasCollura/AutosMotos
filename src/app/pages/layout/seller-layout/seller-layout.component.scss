@@ -8,6 +8,7 @@
 	"section-nav" 80px
     "section-main" auto/
     100%;
+    background: #FBFCFE;
 }
 
 .section-nav{
@@ -18,6 +19,7 @@
     z-index: 1;
     grid-gap: 20px;
     grid-template-columns: 70% auto;
+    background-color: #fff;
 
     .nav{
         display: grid;
@@ -104,4 +106,33 @@
     display: grid;
     grid-template-rows: 0px auto;
     position: relative;
+}
+
+.main-float{
+    width: 180px;
+    height: 140px;
+    background-color: #fff;
+    filter: drop-shadow(0px 0px 9px rgba(102, 102, 102, 0.3));
+    border-radius: 6px;
+    padding: 16px;
+    position: absolute;
+    right: 20px;
+    top: 90px;
+    ul{
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+
+        li{
+            width: 100%;
+            display: inline-block;
+            margin-top: 10px;
+            a{
+                font-size: 17px;
+                font-weight: 400;
+                text-decoration: none;
+                margin-top: 10px;
+            }
+        }
+    }
 }

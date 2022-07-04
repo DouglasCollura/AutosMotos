@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalsService } from 'src/app/components/modals/modals.service';
 
 @Component({
     selector: 'app-seller-layout',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SellerLayoutComponent implements OnInit {
 
-    constructor() { }
+    constructor(
+        private ModalsService:ModalsService
+    ) { }
 
     ngOnInit(): void {
     }
 
+
+    main=false;
+    
+    modal(){
+        this.ModalsService.toggle()
+    }
 }

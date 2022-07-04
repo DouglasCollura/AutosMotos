@@ -34,7 +34,9 @@
               "src/styles.scss",
               "src/assets/iconos/style.css",
               "src/assets/theme/grid.scss",
-              "src/assets/theme/custom.scss"
+              "src/assets/theme/custom.scss",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js"

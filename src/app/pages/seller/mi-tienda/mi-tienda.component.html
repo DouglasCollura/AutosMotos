@@ -1,0 +1,189 @@
+<div class="temp">
+    <!-- PERFIL DEL USUARIO -->
+    <div class="sectionProfile">
+        <a class="option" (click)="edit()">Editar</a>
+        <div class="profileRow">
+            <div class="circleProfile">
+                <img src="../../../../assets/img/user_example.jpg" alt="">
+            </div>
+            <h3>Nombre de la tienda</h3>
+        </div>
+        <div class="row">
+            <div class="infoProfile">
+                <h4>Nombre y apellido: xxxxxxxxxxxxxxxxxxx</h4>
+                <h4>Email: xxxxxxxxxxxxxxx</h4>
+                <h4>Teléfono: xxxxxxxxxxxxxxx</h4>
+            </div>
+            <div class="infoProfile">
+                <h4>Whatsapp: xxxxxxxxxxxxxxxxxxx</h4>
+                <h4>Dirección: xxxxxxxxxxxxxxx</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- ULTIMOS ANUNCIOS PUBLICADOS -->
+    <div style="width: 100%;overflow: hidden;z-index: 0;">
+        <div class="headInformation">
+            <h2>Productos publicados</h2>
+            <div class="btnsBox">
+                <a class="btnInfoHead nobg" style="margin-right: 20px;" routerLink="/seller/importar"><span>Publicación masiva</span></a>
+                <a class="btnInfoHead" (click)="crear()"><span>nuevo anuncio</span></a>
+            </div>
+        </div>
+        <div class="headBoxInfo">
+            <h2>Últimos anuncios publicados</h2>
+        </div>
+        <owl-carousel-o [options]="customOptions"  style="background-color: #fff;">
+            <ng-template carouselSlide *ngFor="let item of [1,2,3,4,5,6,7,8]" style="background-color: #fff;">
+                <div>
+                    <div class="cardBox">
+                        <div class="headCard" 
+                            style="background-image: url('../../../../assets/img/Autos/auto1.jpg'); 
+                            background-size: cover; 
+                            background-position: center;">
+                            <div class="optionsCardHead">
+                                <a href="" class="optionCircle">
+                                    <img src="../../../../assets/iconos/icons-card/pencil.svg"/>
+                                </a>
+                                <a href="" class="optionCircle">
+                                    <img src="../../../../assets/iconos/icons-card/trash.svg"/>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="bodyCard">
+                            <h2 class="titleCard">Título del auto xxxxxxxxx xxxxxxxx</h2>
+                            <h3><span>Año: 2022</span> <span class="km">Km: 200.000</span></h3>
+                            <h4>$$$$$$$$$$</h4>
+                            <a class="btnCard" (click)="promocionar(1)">Promocionar</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>  
+        </owl-carousel-o>
+    </div>
+
+    <div style="width: 100%;overflow: hidden;z-index: 0;">
+        <div class="headBoxInfo">
+            <h2>Venta de recambios</h2>
+        </div>
+        <owl-carousel-o [options]="customOptions"  style="background-color: #fff;">
+            <ng-template carouselSlide *ngFor="let item of [1,2,3,4,5,6,7,8]" style="background-color: #fff;">
+                <div>
+                    <div class="cardBox">
+                        <div class="headCard" 
+                            style="background-image: url('../../../../assets/img/Autos/auto1.jpg'); 
+                            background-size: cover; 
+                            background-position: center;">
+                            <div class="optionsCardHead">
+                                <a href="" class="optionCircle">
+                                    <img src="../../../../assets/iconos/icons-card/pencil.svg"/>
+                                </a>
+                                <a href="" class="optionCircle">
+                                    <img src="../../../../assets/iconos/icons-card/trash.svg"/>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="bodyCard">
+                            <h2 class="titleCard">Título del auto xxxxxxxxx xxxxxxxx</h2>
+                            <h3><span>Año: 2022</span> <span class="km">Km: 200.000</span></h3>
+                            <h4>$$$$$$$$$$</h4>
+                            <a class="btnCard" (click)="promocionar(1)">Promocionar</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>  
+        </owl-carousel-o>
+    </div>
+
+
+    <!-- SERVICIOS PUBLICADOS -->
+    <div class="headInformation">
+        <h2>Servicios publicados</h2>
+        <div class="btnsBox">
+            <a class="btnInfoHead nobg" style="margin-right: 20px;" routerLink="/seller/importar"><span>Publicación masiva</span></a>
+            <a class="btnInfoHead" (click)="crear()"><span>nuevo anuncio</span></a>
+        </div>
+    </div>
+
+    <div class="headBoxInfo">
+        <h2>Alquiler de vehículos</h2>
+    </div>
+
+    <div class="row">
+        <div class="cardService" *ngFor="let item of [1,2,3,4,5,6]">
+            <div class="cardImage">
+                <img src="../../../../assets/img/bmw.png" alt="">
+            </div>
+            <div class="cardInfo">
+                <div class="rowSm">
+                    <h3>Nombre del taller</h3>
+                    <div class="boxIcons">
+                        <a><img src="../../../../assets/iconos/icons-card/pencil.svg" alt="" /></a>
+                        <a><img src="../../../../assets/iconos/icons-card/trash.svg" alt="" /></a>
+                    </div>
+                </div>
+                <div class="rowSm">
+                    <p>Dirección</p>
+                </div>
+                <div class="rowSm">
+                    <button class="cardBotton" (click)="promocionar(1)">promocionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="headBoxInfo">
+        <h2>Servicios de taller</h2>
+    </div>
+
+    <div class="row">
+        <div class="cardService" *ngFor="let item of [1,2,3,4,5,6]">
+            <div class="cardImage">
+                <img src="../../../../assets/img/bmw.png" alt="">
+            </div>
+            <div class="cardInfo">
+                <div class="rowSm">
+                    <h3>Nombre del taller</h3>
+                    <div class="boxIcons">
+                        <a><img src="../../../../assets/iconos/icons-card/pencil.svg" alt="" /></a>
+                        <a><img src="../../../../assets/iconos/icons-card/trash.svg" alt="" /></a>
+                    </div>
+                </div>
+                <div class="rowSm">
+                    <p>Dirección</p>
+                </div>
+                <div class="rowSm">
+                    <button class="cardBotton" (click)="promocionar(1)">promocionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SECCION DE RESEÑAS -->
+    <div style="width: 100%;overflow: hidden;">
+        <div class="headInformation">
+            <h2>Últimas reseñas</h2>
+            <a routerLink="resenas" class="btnInfoHeadMore"><span>ver todas</span></a>
+        </div>
+        <owl-carousel-o [options]="customOptionsresena"  style="width:100%;background-color: #fff;display: inline-block;margin-top:20px;margin-left: 20px;">
+            <ng-template carouselSlide *ngFor="let item of [1,2,3,4,5,6,7,8]" style="background-color: #fff;">
+                <div>
+                    <div class="cardBoxResena">
+                        <div class="headCard">
+                            <h2>Nombre</h2>
+                            <h3>Hora</h3>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu lacus purus morbi. Velit urna, sed urna id turpis gravida. </p>
+                        <div class="footCard">
+                            <h4>Valoró con <span>5.0 <img src="../../../../assets/iconos/icons-card/star-red.svg"></span></h4>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>  
+          </owl-carousel-o>
+    </div>
+</div>
+
+<app-modal-edit-tienda></app-modal-edit-tienda>
+<app-modal-promocionar  (success)="succesPromo($event)"></app-modal-promocionar>

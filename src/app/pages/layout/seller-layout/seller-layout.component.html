@@ -5,30 +5,44 @@
         <div  class="nav" >
             <img src="../../../../assets/img/logo.svg" alt="">
 
-            <button class="btn active" routerLink="inicio" >Inicio</button>
-            <button class="btn">Tienda</button>
+            <button class="btn active" routerLink="/seller" >Inicio</button>
+            <button class="btn" routerLink="tienda">Tienda</button>
             <button class="btn">Soporte</button>
             <button class="btn">Panel de promociones</button>
-            <button class="btn anuncio" routerLink="/seller/anuncio">NUEVO ANUNCIO</button>
+            <button class="btn anuncio" (click)="modal()">NUEVO ANUNCIO</button>
         </div>
 
         <div class="user">
             <button class="btn" > <span class="icon icon-bell"></span> </button>
-
-            <div class="content">
-
+            <div class="content" (click)="main = !main">
                 <div class="cont-img">
-                    <img src="../../../../assets/img/user_example.jpg" alt="   ">
+                    <img src="../../../../assets/img/user_example.jpg" alt="">
                 </div>
-
                 <button class="options"> <span class="icon icon-cheveron-down"></span> </button>
             </div>
         </div>
 
+        <div class="main-float" *ngIf="main">
+            <ul>
+                <li>
+                    <a routerLink="mi-tienda">Mi perfil</a>
+                </li>
+                <li>
+                    <a href="">Historial de pagos</a>
+                </li>
+                <li>
+                    <a href="">Cerrar sesión</a>
+                </li>
+                
+            </ul>
+        </div>
     </div>
 
     <div class="temp-main-landing">
-
         <router-outlet></router-outlet>
     </div>
 </div>
+
+<app-modals></app-modals>
+<app-modals-success></app-modals-success>
+
