@@ -50,7 +50,7 @@
 
                 <div *ngFor="let item of talleres; let i =index" class="card-h">
                     <div class="card-h-img">
-                        <img [src]="'https://cdn.autosmotos.es/'+item.thumbnail" alt="">
+                        <img (click)=" item.mechanic_ad.website_url!=null && GoPage(item.mechanic_ad.website_url)" [src]="'https://cdn.autosmotos.es/'+item.thumbnail" alt="">
                     </div>
 
                     <div class="card-h-body">
@@ -66,8 +66,8 @@
                         </div>
 
                         <div class="footer">
-                            <button class="btn"> <img src="../../../assets/img/btn-wsp.png" alt=""> </button>  
-                            <button class="btn"> <img src="../../../assets/img/btn-phone.png" alt=""> </button>  
+                            <button class="btn" (click)="GoToWts(item.mechanic_ad.whatsapp_number)"> <img src="../../../assets/img/btn-wsp.png" alt=""> </button>  
+                            <a [href]="'tel:'+item.mechanic_ad.mobile_number"  class="btn"> <img src="../../../assets/img/btn-phone.png" alt=""> </a>  
                         </div>
                     </div>
                 </div>

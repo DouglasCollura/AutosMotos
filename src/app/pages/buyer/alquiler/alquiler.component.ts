@@ -34,6 +34,14 @@ export class AlquilerComponent implements OnInit {
        //Do other stuff with the event.target
     }
 
+    GoToWts(phone:any){
+        window.open('https://api.whatsapp.com/send?phone='+phone, "_blank");
+    }
+
+
+    GoPage(web:any){
+        window.open(web, "_blank");
+    }
 
     SelectMark(item:any, ev:any){
         console.log(item)

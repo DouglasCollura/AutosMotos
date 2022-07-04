@@ -257,6 +257,7 @@ select{
     padding: 5px;
     grid-gap: 8px;
     &-img{
+        cursor: pointer;
         display: grid;
         overflow: hidden;
         height: 100%;

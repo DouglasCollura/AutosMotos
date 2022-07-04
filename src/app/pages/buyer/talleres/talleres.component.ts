@@ -24,6 +24,14 @@ export class TalleresComponent implements OnInit {
     talleres:any;
 
 
+    GoPage(web:any){
+        window.open(web, "_blank");
+    }
+
+    GoToWts(phone:any){
+        window.open('https://api.whatsapp.com/send?phone='+phone, "_blank");
+    }
+
     SelectMark(item:any, ev:any){
         console.log(item)
         let type="";
