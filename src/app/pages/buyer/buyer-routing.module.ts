@@ -13,49 +13,46 @@ import { TalleresComponent } from './talleres/talleres.component';
 const routes: Routes = [
     {
         path: '',
-        component: BuyerComponent,
+        component: LayoutComponent,
         children:[
             {
                 path:'',
                 component:BuyerComponent
             },
             
+            {
+                path: 'compra',
+                component: CompraComponent,
+                
+            },
+            {
+                path: 'compra/type/:type',
+                component: CompraComponent,
+                
+            },
+            {
+                path: 'compra/comprar',
+                component: ComprarComponent
+            },
+            
+            {
+                path: 'alquiler',
+                component: AlquilerComponent
+            },
+            {
+                path: 'deseos',
+                component: DeseosComponent
+            },
+            {
+                path: 'talleres',
+                component: TalleresComponent
+            },
+            {
+                path: 'recambio',
+                component: RecambioComponent
+            },
         ]
     },
-
-    {
-        path: 'compra',
-        component: CompraComponent,
-        
-    },
-    {
-        path: 'compra/type/:type',
-        component: CompraComponent,
-        
-    },
-    {
-        path: 'compra/comprar',
-        component: ComprarComponent
-    },
-    
-    {
-        path: 'alquiler',
-        component: AlquilerComponent
-    },
-    {
-        path: 'deseos',
-        component: DeseosComponent
-    },
-    {
-        path: 'talleres',
-        component: TalleresComponent
-    },
-    {
-        path: 'recambio',
-        component: RecambioComponent
-    },
-
-    
 ];
 
 @NgModule({
