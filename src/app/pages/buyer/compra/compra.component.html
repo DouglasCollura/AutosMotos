@@ -1,0 +1,187 @@
+    <div class="temp-compra">
+
+        <!-- !SECTION HEADER ==================================== -->
+        <div class="section-header">
+            <h1 class="font-500 text-black">Encuentra el vehículo que estás buscando</h1>
+            <div class="group-input-icon-left">
+                <span class="icon-search small "></span>
+                <input type="text" placeholder="Busca cursos o programas" class="input-circle 
+                    input-search">
+            </div>
+        </div>
+
+
+        <!-- !SECTION FILTRO ==================================== -->
+        <div class="section-filtro">
+            <div class="card card-filtro">
+                <div class="grid align-content-start gap-10">
+                    <h1 class="text-black font-500">Filtrar por</h1>
+                    <h4 class="color-rojo font-600">LIMPIAR FILTROS</h4>
+                </div>
+
+                <div>
+                    <div class="section">
+                        <button (click)="dropDown(1)" >Tipo de vehículo <span class="icon icon-cheveron-down"></span></button>
+
+                        <div class="dropdown" id="1">
+                            <div class="checkbox-group">
+                                <input type="checkbox" name="" id="0">
+                                <label for="0"> <span class="icon icon-time_to_leave"></span> Auto</label>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input type="checkbox" name="" id="2">
+                                <label for="2"> <span class="icon icon-moped"></span> Moto</label>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input type="checkbox" name="" id="3">
+                                <label for="3"> <span class="icon icon-airport_shuttle"></span> Caravana</label>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input type="checkbox" name="" id="4">
+                                <label for="4"> <span class="icon icon-truck"></span> Camión</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <button (click)="dropDown('marca')" >Marca <span class="icon icon-cheveron-down"></span></button>
+
+                        <div class="dropdown" id="marca">
+                            <button (click)="dropDown('select-marca')" class="btn-select" > Seleccionar marca <span class="icon icon-cheveron-down"></span></button>
+                            
+                            <div class="content-select" id="select-marca">
+                                <div class="section-select">
+                                    <img src="../../../../assets/img/bmw_ico.png" alt="">
+                                    <p>xxxxxxx</p>
+                                </div>
+
+                                <div class="section-select">
+                                    <img src="../../../../assets/img/bmw_ico.png" alt="">
+                                    <p>xxxxxxx</p>
+                                </div>
+
+                                <div class="section-select">
+                                    <img src="../../../../assets/img/bmw_ico.png" alt="">
+                                    <p>xxxxxxx</p>
+                                </div>
+
+                                <div class="section-select">
+                                    <img src="../../../../assets/img/bmw_ico.png" alt="">
+                                    <p>xxxxxxx</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <button (click)="dropDown('modelo')">Modelo <span class="icon icon-cheveron-down"></span></button>
+                        <div class="dropdown" id="modelo">
+                            <button (click)="dropDown('select-modelo')" class="btn-select" > Seleccionar modelo <span class="icon icon-cheveron-down"></span></button>
+                            
+                            <div class="content-select" id="select-modelo">
+                                <div class="section-select">
+                                    <p>xxxxxxx</p>
+                                </div>
+
+                                <div class="section-select">
+                                    <p>xxxxxxx</p>
+                                </div>
+
+                                <div class="section-select">
+                                    <p>xxxxxxx</p>
+                                </div>
+
+                                <div class="section-select">
+                                    <p>xxxxxxx</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <button>Año <span class="icon icon-cheveron-down"></span></button>
+                    </div>
+
+                    <div class="section">
+                        <button>Kilometraje <span class="icon icon-cheveron-down"></span></button>
+                    </div>
+
+                    <div class="section">
+                        <button>Condición <span class="icon icon-cheveron-down"></span></button>
+                    </div>
+
+                    <div class="section">
+                        <button>Precio <span class="icon icon-cheveron-down"></span></button>
+                    </div>
+
+                </div>
+
+                <button class="btn btn-block btn-primary">Búsqueda avanzada</button>
+
+
+            </div>
+
+            <div class="card card-comparar">
+                <button (click)="openComparar()" class="btn btn-block btn-secondary">comparar</button>
+
+                <h4>{{length_comparar}} artículos agregados <span *ngIf="length_comparar == 2" >(full)</span> </h4>
+
+            </div>
+        </div>
+
+
+        <!-- !SECTION CONTENT ==================================== -->
+        <div class="section-content">
+            <div class="grid gc-2x-g align-items-center">
+                <h3>10000 resultados</h3>
+
+                <select class="justify-self-end" name="" id="">
+                    <option value="">Ordenar</option>
+                </select>
+            </div>
+
+            <div class="content">
+
+                <div  *ngFor="let info of res; let i =index" class="card card-carousel">
+                    <div class="card-carousel-img">
+                        <div class="card-carousel-top-img">
+                            <button class="btn" (click)="AddComparar(info, $event)" >+ COMPARAR</button>
+                            <button class="btn " [class]="filterMark(info.ad_id)?'btn-bookmark-primary':'btn-bookmark'"  [id]="'btn'+i" (click)="SelectMark(info,i)"><span class="icon-bookmark text-black"></span></button>
+                        </div>
+                        <img (click)="GoShow(info)" [src]="'https://cdn.autosmotos.es/'+info.ad.thumbnail"  alt="">
+                    </div>
+                    <div class="card-carousel-body">
+                        <h3 class="font-500 text-black"> {{info.ad.title}}  </h3>
+                        <div class="grid gc-2x-g gap-20 text-start">
+                            <h5>Marca: {{info.make?.name}} </h5>
+                            <h5>Modelo: {{info.model?.name }}</h5>
+                            <h5>Carrocería: {{ info.body_type?.external_name }}</h5>
+                            <h5>Año: {{info.first_registration_year}}</h5>
+                            <h5>KM: {{info.mileage}} </h5>
+                            <h5>Diesel: {{info.fuel_type?.external_name}}</h5>
+                            <h5>Caja manual: {{ info.transmission_type?.external_name }}</h5>
+                        </div>
+        
+                        <h2 class="font-600 text-black"> {{info.price}} </h2>
+
+                    </div>
+                    
+                    <div class="card-carousel-footer">
+                        <button  (click)="GoToWts(info.dealer_show_room.whatsapp_number)" >  <img src="../../../../assets/img/btn-wsp.png" alt=""></button> 
+                        <a [href]="'tel:'+info.dealer_show_room.mobile_number"><img src="../../../../assets/img/btn-phone.png" alt=""> </a> 
+                        <div class="grid gap-10">
+                            <h4>Vendedor</h4>
+                            <span class="color-rojo">5.0 <span class="icon-star color-rojo"></span></span>  
+                        </div> 
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>

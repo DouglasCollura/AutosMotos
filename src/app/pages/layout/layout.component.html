@@ -1,0 +1,53 @@
+<div class="temp-main-comprador">
+    
+    <div class="section-nav" *ngIf="display_menu" >
+       
+        <div class="section-nav-left">
+            <img src="../../../../assets/img/logo.svg" alt="">
+
+            <div class="group-input-icon-left">
+                <span class="icon-search small"></span>
+                <input type="text" placeholder="Busca cursos o programas" class="input-circle">
+            </div>
+        </div>
+
+        <div class="section-nav-right">
+            
+            <button class="btn  color-rojo" routerLink="deseos" > <span class="icon icon-bookmark"></span> </button>
+            
+            <button routerLink="landing" class="btn btn-secondary font-600">SOY VENDEDOR</button>
+        </div>
+
+        <nav class="align-self-end nav-main">
+            <ul>    
+                <li class="drop-container">
+                    Comprar Vehículos 
+                    <span class="icon-cheveron-down small"></span>
+                    <div class="drop-content">
+                        <span></span>
+                        <div>
+                            <button class="btn" (click)="GoTo('compra?type=auto')">Autos</button>
+                            <button class="btn" routerLink="compra">Motos</button>
+                            <button class="btn" routerLink="compra">Caravanas</button>
+                            <button class="btn" (click)="GoTo('compra?type=truck')">Camiones</button>
+                        </div>
+
+                    </div>
+                </li>
+                <li routerLink="alquiler">Alquilar vehículos</li>
+                <li routerLink="talleres" >Talleres</li>
+                <li routerLink="recambio">Recambios</li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="section-main">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>
+
+
+<!-- <app-comparar></app-comparar> -->
+<!-- <app-landing></app-landing> -->

@@ -1,0 +1,45 @@
+<div class="over" *ngIf="modal" (click)="close()"></div>
+
+<div class="modalSM" *ngIf="modal">
+    <a (click)="close()"><img src="../../../assets/iconos/close-modal.svg"/></a>
+
+    <div style="height: 900px;display: inline-block;width: 80%;">
+        <div class="rowModal">
+            <div class="circleProfile">
+                <div class="pencilProfile">
+                    <img src="../../../assets/iconos/pencil-white.svg">
+                </div>
+
+                <img src="../../../../assets/img/user_example.jpg" alt="">
+            </div>
+        </div>
+        <div class="rowModal">
+            <label>Nombre de la tienda</label>
+            <input type="text">
+        </div>
+        <div class="rowModal">
+            <label>Nombre y apellido</label>
+            <input type="text">
+        </div>
+        <div class="rowModal">
+            <label>Email</label>
+            <input type="email">
+        </div>
+        <div class="rowModal">
+            <label>Teléfono de contacto</label>
+            <input type="text">
+        </div>
+        <div class="rowModal">
+            <label>Whatsapp</label>
+            <input type="text">
+        </div>
+        <div class="rowModal">
+            <label>Dirección</label>
+            <input type="text">
+        </div>
+        <div class="rowModal"  style="margin-bottom: 50px;">
+            <button>guardar cambios</button>
+
+        </div>
+    </div>
+</div>

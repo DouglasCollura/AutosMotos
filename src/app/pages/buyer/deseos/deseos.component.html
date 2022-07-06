@@ -1,0 +1,180 @@
+
+<div class="temp-deseo">
+
+    <div class="section-header">
+
+        <div class="section-top">
+            <h1>Tu lista de deseos</h1>
+            <h3>(llena)</h3>
+
+            <button class="btn color-rojo font-500"  >VACIAR</button>
+        </div>
+
+        <select class="" name="" id="">
+            <option value="">Ordenar</option>
+        </select>
+    </div>
+
+    <div class="section-content">
+
+        <ng-container *ngFor="let item of autos"  >
+
+            <div class="card-v" *ngIf="item.type != 'rental' && item.type != 'mechanic' && item.type != 'shop'" >
+
+                <!-- !AUTOS -->
+                <div class="section-img" *ngIf="item.type=='auto'" >
+                    <img [src]="CargarThumb(item.auto_ad.ad.thumbnail)" alt="">
+                    <button class="btn btn-bookmark-primary"><span class="icon-bookmark text-black"></span></button>
+                </div>
+    
+                <div class="section-body"  *ngIf="item.type=='auto'">
+                    <h2 class="title"> {{item.auto_ad.ad?.title}} </h2>
+    
+                    <div class="grid gc-2x-g">
+                        <div class="grid gap-10">
+                            <h4>Marca: {{item.auto_ad.make?.name}} </h4>
+    
+                            <h4>Categoría: {{item.auto_ad.category}}  </h4>
+                        </div>
+    
+                        <div class="grid gap-10">
+                            <h4>Estado: {{item.auto_ad.condition}} </h4>
+                        </div>
+    
+                    </div>
+                    
+                    <h1 class="title"> {{item.auto_ad.price}} </h1>
+    
+                    <div class="footer">
+                        <button (click)="GoToWts(item?.dealer_show_room?.whatsapp_number)"><img src="../../../../assets/img/btn-wsp.png" alt=""></button> 
+                        <a [href]="'tel:'+item?.dealer_show_room?.mobile_number"><img src="../../../../assets/img/btn-phone.png" alt=""> </a> 
+                        <div class="grid gap-10">
+                            <h4>Vendedor</h4>
+                            <span class="color-rojo">5.0 <span class="icon-star color-rojo"></span></span>  
+                        </div> 
+                    </div>
+                </div>
+    
+                <!-- !TRUCK -->
+                <div class="section-img" *ngIf="item.type=='truck'" >
+                    <img [src]="CargarThumb(item.truck_ad.ad.thumbnail)" alt="">
+                    <button class="btn btn-bookmark-primary"><span class="icon-bookmark text-black"></span></button>
+                </div>
+    
+                <div class="section-body"  *ngIf="item.type=='truck'">
+                    <h2 class="title"> {{item?.truck_ad.ad?.title}} </h2>
+    
+                    <div class="grid gc-2x-g">
+                        <div class="grid gap-10">
+                            <h4>Marca: {{item?.truck_ad.make?.name}} </h4>
+    
+                            <h4>Categoría: {{item.truck_ad.category}}  </h4>
+                        </div>
+    
+                        <div class="grid gap-10">
+                            <h4>Estado: {{item?.truck_ad?.condition}} </h4>
+                        </div>
+    
+                    </div>
+                    
+                    <h1 class="title"> {{item?.truck_ad?.price}} </h1>
+    
+                    <div class="footer">
+                        <button  (click)="GoToWts(item?.truck_ad?.whatsapp_number)"><img src="../../../../assets/img/btn-wsp.png" alt=""></button> 
+                        <a [href]="'tel:'+item?.truck_ad?.mobile_number"><img src="../../../../assets/img/btn-phone.png" alt=""> </a> 
+                        <div class="grid gap-10">
+                            <h4>Vendedor</h4>
+                            <span class="color-rojo">5.0 <span class="icon-star color-rojo"></span></span>  
+                        </div> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-h"  *ngIf="item.type == 'rental' || item.type == 'mechanic' ">
+                <div class="card-h-img" >
+                    <img *ngIf="item.type == 'rental'" (click)=" item.rental_ad.website_url!=null && GoPage(item.rental_ad.website_url)" [src]="'https://cdn.autosmotos.es/'+item.thumbnail" (error)="onImgError($event)" alt="">
+                    <img *ngIf="item.type == 'mechanic'" (click)=" item.mechanic_ad.website_url!=null && GoPage(item.mechanic_ad.website_url)" [src]="'https://cdn.autosmotos.es/'+item.thumbnail" (error)="onImgError($event)" alt="">
+                </div>
+
+                <div class="card-h-body" *ngIf="item.type=='rental'">
+                    <div class="section">
+                        <h4 class="font-600"> {{item.title}} </h4>
+                        <button class="btn btn-bookmark-primary"  ><span class="icon icon-bookmark"></span></button>
+                    </div>
+
+                    <div class="section">
+                        <h5> {{item.rental_ad.address}} </h5>
+
+                        <h5 class="color-rojo">5.0 <span class="icon icon-star color-rojo"></span> </h5>
+                    </div>
+
+                    <div class="footer">
+                        <a  (click)="GoToWts(item.rental_ad.whatsapp_number)" class="btn"> <img src="../../../assets/img/btn-wsp.png" alt=""> </a>  
+                        <a [href]="'tel:'+item.rental_ad.mobile_number" class="btn"> <img src="../../../assets/img/btn-phone.png" alt=""> </a>  
+                    </div>
+                </div>
+
+                <div class="card-h-body" *ngIf="item.type=='mechanic'">
+                    <div class="section">
+                        <h4 class="font-600"> {{item.title}} </h4>
+                        <button class="btn btn-bookmark-primary"  ><span class="icon icon-bookmark"></span></button>
+                    </div>
+
+                    <div class="section">
+                        <h5> {{item.mechanic_ad.address}} </h5>
+
+                        <h5 class="color-rojo">5.0 <span class="icon icon-star color-rojo"></span> </h5>
+                    </div>
+
+                    <div class="footer">
+                        <button class="btn"> <img src="../../../assets/img/btn-wsp.png" alt=""> </button>  
+                        <button class="btn"> <img src="../../../assets/img/btn-phone.png" alt=""> </button>  
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card-v"  *ngIf="item.type == 'shop' " >
+                <div class="section-img">
+                    <img [src]="'https://cdn.autosmotos.es/'+item.thumbnail" alt="">
+                    <button class="btn btn-bookmark-primary" ><span class="icon-bookmark text-black"></span></button>
+
+                </div>
+
+                <div class="section-body">
+                    <h2 class="title"> {{item.shop_ad.ad.title}} </h2>
+
+                    <div class="grid gc-2x-g">
+                        <div class="grid gap-10">
+                            <h4>Marca: {{item.shop_ad.make.name}} </h4>
+
+                            <h4>Categoría: {{item.shop_ad.category}} </h4>
+                        </div>
+
+                        <div class="grid gap-10">
+                            <h4>Estado: {{item.shop_ad.condition}} </h4>
+                        </div>
+
+                    </div>
+
+                    <h1 class="title"> {{item.price}} </h1>
+
+                    <div class="footer">
+                        <button (click)="GoToWts(item?.shop_ad?.whatsapp_number)" ><img src="../../../../assets/img/btn-wsp.png" alt=""></button> 
+                        <a [href]="'tel:'+item?.shop_ad?.mobile_number"><img src="../../../../assets/img/btn-phone.png" alt=""> </a> 
+                        <div class="grid gap-10">
+                            <h4>Vendedor</h4>
+                            <span class="color-rojo">5.0 <span class="icon-star color-rojo"></span></span>  
+                        </div> 
+                    </div>
+                </div>
+            </div>
+
+
+        </ng-container>
+
+        
+
+    </div>
+
+</div>

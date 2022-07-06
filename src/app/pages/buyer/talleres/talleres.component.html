@@ -1,0 +1,80 @@
+
+    <div class="temp-taller">
+
+        <!-- !SECTION HEADER ==================================== -->
+        <div class="section-header">
+            <h1 class="font-500 text-black">Encuentra los talleres más cercanos y recomendados</h1>
+            <div class="group-input-icon-left">
+                <span class="icon-search small "></span>
+                <input type="text" placeholder="Busca cursos o programas" class="input-circle 
+                    input-search">
+            </div>
+        </div>
+
+
+        <!-- !SECTION FILTRO ==================================== -->
+        <div class="section-filtro">
+            <div class="card card-filtro">
+                <div class="grid align-content-start gap-10">
+                    <h1 class="text-black font-500">Filtrar por</h1>
+                    <h4 class="color-rojo font-600">LIMPIAR FILTROS</h4>
+                </div>
+
+                <div>
+                    <div class="section">
+                        <button>Ubicación <span class="icon icon-cheveron-down"></span></button>
+                    </div>
+
+                    <div class="section">
+                        <button>Precio <span class="icon icon-cheveron-down"></span></button>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- !SECTION CONTENT ==================================== -->
+        <div class="section-content">
+            <div class="grid gc-2x-g align-items-center">
+                <h3>10000 resultados</h3>
+
+                <select class="justify-self-end" name="" id="">
+                    <option value="">Ordenar</option>
+                </select>
+            </div>
+
+            <div class="content">
+
+                <div *ngFor="let item of talleres; let i =index" class="card-h">
+                    <div class="card-h-img">
+                        <img (click)=" item.mechanic_ad.website_url!=null && GoPage(item.mechanic_ad.website_url)" [src]="'https://cdn.autosmotos.es/'+item.thumbnail" alt="">
+                    </div>
+
+                    <div class="card-h-body">
+                        <div class="section">
+                            <h4 class="font-600"> {{item.title}} </h4>
+                            <button class="btn" (click)="SelectMark(item,i)" [id]="'btn'+i"><span class="icon icon-bookmark"></span></button>
+                        </div>
+
+                        <div class="section">
+                            <h5> {{item.mechanic_ad.address}} </h5>
+
+                            <h5 class="color-rojo">5.0 <span class="icon icon-star color-rojo"></span> </h5>
+                        </div>
+
+                        <div class="footer">
+                            <button class="btn" (click)="GoToWts(item.mechanic_ad.whatsapp_number)"> <img src="../../../assets/img/btn-wsp.png" alt=""> </button>  
+                            <a [href]="'tel:'+item.mechanic_ad.mobile_number"  class="btn"> <img src="../../../assets/img/btn-phone.png" alt=""> </a>  
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>

@@ -1,0 +1,12 @@
+<div class="over" *ngIf="modal" (click)="close()"></div>
+
+<div class="modalSM" *ngIf="modal">
+    <a (click)="close()"><img src="../../../assets/iconos/close-modal.svg"/></a>
+
+    <div class="boxBottns">
+        <img src="../../../assets/iconos/modal-success.svg" *ngIf="type == 1"/>
+        <img src="../../../assets/iconos/modal-error.svg" *ngIf="type == 2"/>
+        <h2>{{text}}</h2>
+        <button (click)="tienda()">volver a mi tienda</button>
+    </div>
+</div>

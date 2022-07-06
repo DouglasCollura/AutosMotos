@@ -1,0 +1,155 @@
+    <div class="temp-comprar">
+        <button class="btn btn-back" (click)="backClicked()" > <span class="icon icon-cheveron-left"></span> </button>
+        <div class="section-info">
+
+            <div class="section-photo">
+                <div class="photo-select">
+                    <div class="chevron-left" (click)="imgLeft()" > <span class="icon icon-cheveron-left"></span> </div>
+                    <img [src]="image_select" alt="">
+                    <div class="chevron-rigth" (click)="imgRight()" ><span class="icon icon-cheveron-right"></span> </div>
+                </div>
+
+                <div class="group-photo"  >
+                    <div class="photo" (click)="SelectImg(i)" [id]="i" *ngFor="let item of ads?.images; let i = index">
+                        <img  [src]="CargarThumb(item.path)" alt="">
+                        <div class="filter" [ngStyle]="{'display':i ==0 ? 'block' : 'none' }" ></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info">
+
+                <div class="grid gap-10" >
+                    <h1 class="titulo"> {{vehiculo?.ad?.title}} </h1> 
+
+                    <div class="calificacion">
+                        <h4> {{vehiculo?.dealer?.company_name}} / Calificación de vendedor</h4>
+        
+                        <h4 class="color-rojo"> 5.0 <span class="icon icon-star color-rojo"></span> </h4>
+                    </div>
+                </div>
+
+                <h1 class="color-rojo" style="font-weight: 500" > {{vehiculo?.price}} $ </h1>
+
+                <div class="grid gap-20">
+                    <button class="btn-primary btn-block"><a [href]="'tel:'+ads?.dealerShowRoom?.whatsapp_number">CONTACTAR POR WPP</a> </button>
+                    <button class="btn-primary-claro btn-block"><a [href]="'tel:'+ads?.dealerShowRoom?.mobile_number">CONTACTAR POR TEL</a> </button>
+                </div>
+
+                <div class="card-comentario">
+                    <div class="grid gap-10">
+                        <h3> <span class="title-info">Vendedor:</span> {{vehiculo?.dealer?.company_name}} </h3>
+                        <div class="column-space-between">
+                            <h3> <span class="title-info">Ubicación:</span> {{vehiculo?.dealer?.address}} </h3>
+                            <button class="btn vermas">Ver mapa</button>
+                        </div>
+                        
+                        <h3><span class="title-info">Web:</span> <span class="color-rojo"> www.xxxxx.com</span></h3>
+                        
+                        <h3 class="title-info">Otros modos de contacto:</h3>
+
+                        <h3 class="form-icon"> <a href="mailto:leadsgrupoflexicar@flexicar.es"> <span class="icon icon-mail" style="font-size: 16px" ></span> </a>{{vehiculo?.dealer?.email_address}}  </h3>
+                    </div>
+                    <h4><span class="color-rojo">5.0 <span class="icon icon-star color-rojo"></span> </span> </h4>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="section-body">
+
+            <div class="section">
+                <h2>Descripción</h2>
+                <p class="description" > 
+                    {{vehiculo?.ad.description}}
+                </p> 
+            </div>
+
+            <div class="section">
+                <h2>Características técnicas</h2>
+
+                <div class="caracteristicas">
+                    <div>
+                        <h4> <span class="title-info"> Tipo de vehículo:</span> {{vehiculo?.ad?.type}}</h4>
+                        <h4> <span class="title-info">Marca:</span> {{vehiculo?.make?.name}} </h4>
+                        <h4> <span class="title-info">Modelo:</span> {{vehiculo?.model?.name}}</h4>
+                        <h4> <span class="title-info">Condición:</span> {{vehiculo?.condition}} </h4>
+                        <h4><span class="title-info">Kilometraje:</span> {{vehiculo?.mileage}} </h4>
+                        <h4><span class="title-info">Combustible:</span>{{vehiculo?.fuel_type?.external_name}} </h4>
+                        <h4><span class="title-info">Transmisión:</span>{{vehiculo?.transmission_type?.external_name}} </h4>
+                        <h4><span class="title-info">Tracción /Drivetrain:</span> xxxxx</h4>
+                        <h4><span class="title-info">Potencia (HP):</span> {{vehiculo?.power_hp}}</h4>
+                        <h4><span class="title-info">Capacidad cilíndrica:</span> {{vehiculo?.engine_displacement}} </h4>
+                    </div>
+
+                    <div>
+                        <h4><span class="title-info">Color exterior:</span> {{vehiculo?.exterior_color}} </h4>
+                        <h4><span class="title-info">Color interior:</span> {{vehiculo?.interior_color}}</h4>
+                        <h4><span class="title-info">Vendedor:</span> {{vehiculo?.dealer?.company_name}}</h4>
+                        <h4><span class="title-info">Inspección validada:</span> xxxxxxxx</h4>
+                        <h4><span class="title-info">Puertas:</span> {{vehiculo?.doors}}  </h4>                   
+                        <h4><span class="title-info">Plazas:</span> {{vehiculo?.seats}}</h4>                   
+                        <h4><span class="title-info">Lugares para dormir:</span> xxxxx</h4>                   
+                        <h4><span class="title-info">Engranajes:</span> xxxxx</h4>                   
+                        <h4><span class="title-info">Cilindros:</span> xxxxx</h4>                   
+                        <h4><span class="title-info">Consumo de combustible:</span> xxxxx</h4>                   
+                    </div>
+
+                    
+                </div>
+
+
+
+            </div>
+
+            <div class="section-comentario">
+                <h3 class="titulo">Reseñas sobre el vendedor</h3>
+
+                <div class="card-comentario">
+
+                    <div class="card-comentario-content">
+                        <h3 class="titulo"> Nombre </h3>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu lacus purus morbi. Velit urna, sed urna id turpis gravida. 
+                        </p>
+
+                        <h4>Valoró con  <span class="color-rojo">5.0 <span class="icon icon-star color-rojo"></span> </span> </h4>
+                    </div>
+                    <h4>Hora</h4>
+                </div>
+
+                <div class="card-comentario">
+
+                    <div class="card-comentario-content">
+                        <h3 class="titulo"> Nombre </h3>
+
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum eu lacus purus morbi. Velit urna, sed urna id turpis gravida. 
+                        </p>
+
+                        <h4>Valoró con  <span class="color-rojo">5.0 <span class="icon icon-star color-rojo"></span> </span> </h4>
+                    </div>
+                    <h4>Hora</h4>
+                </div>
+
+                <button class="btn btn-vermas">Ver más</button>
+            </div>
+
+
+            <div class="section-opinion">
+                <h2 class="titulo">Deja una reseña sobre el vendedor</h2>
+
+                <input type="text" placeholder="Nombre">
+
+                <textarea name="" id="" cols="30" rows="5" placeholder="Reseña"></textarea>
+
+                <h4>Valoración</h4>
+                <div></div>
+            </div>
+
+        </div>
+
+    </div>

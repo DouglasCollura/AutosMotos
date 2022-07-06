@@ -1,0 +1,85 @@
+@import "/src/assets/theme/variables";
+
+.temp-deseo{
+    min-height: 100%;
+    display: grid;
+    grid-template: 
+        " section-header"  110px
+        "section-content" auto/
+        100%;
+    grid-gap: 10px;
+    padding:40px 25px;
+}
+
+.section-header{
+    display: grid;
+    grid-area:section-header; 
+    width: 100%;
+    grid-gap: 20px;
+    justify-content: start;
+
+    .section-top{
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        grid-gap: 10px;
+    }
+    
+}
+
+.section-content{
+    display: grid;
+    grid-area:section-content; 
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: start;
+    align-content: start;
+    gap: 20px;
+}
+
+.card-v{
+    width: 290px;
+
+    .footer{
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 10px;
+        button{
+            background: none;
+            border: none;
+        }
+    }
+}
+
+.card-carousel-top-img button.btn{
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 20px;
+    color: black;
+    font-weight: 500;
+}
+
+.btn-bookmark{
+    padding: 5px !important;
+
+    &-primary{
+        @extend .btn-bookmark;
+        background: $rojo !important;
+        color: white !important;
+    }
+}
+.btn-bookmark span{
+    font-size: 18px;
+}
+
+button, a{
+    cursor: pointer !important;
+}
+
+.footer{
+    a{
+        height: max-content !important;
+        padding: 0px !important;
+        margin: 5px !important;
+    }
+
+}

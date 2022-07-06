@@ -1,0 +1,91 @@
+<div class="temp-recambio">
+
+    <!-- !SECTION HEADER ==================================== -->
+    <div class="section-header">
+        <h1 class="font-500 text-black">Encuentra los recambios que necesitas</h1>
+        <div class="group-input-icon-left">
+            <span class="icon-search small "></span>
+            <input type="text" placeholder="Busca cursos o programas" class="input-circle 
+                input-search">
+        </div>
+    </div>
+
+
+    <!-- !SECTION FILTRO ==================================== -->
+    <div class="section-filtro">
+        <div class="card card-filtro">
+            <div class="grid align-content-start gap-10">
+                <h1 class="text-black font-500">Filtrar por</h1>
+                <h4 class="color-rojo font-600">LIMPIAR FILTROS</h4>
+            </div>
+
+            <div>
+                <div class="section">
+                    <button>Ubicación <span class="icon icon-cheveron-down"></span></button>
+                </div>
+
+                <div class="section">
+                    <button>Precio <span class="icon icon-cheveron-down"></span></button>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- !SECTION CONTENT ==================================== -->
+    <div class="section-content">
+        <div class="grid gc-2x-g align-items-center">
+            <h3>10000 resultados</h3>
+
+            <select class="justify-self-end" name="" id="">
+                <option value="">Ordenar</option>
+            </select>
+        </div>
+
+        <div class="content">
+
+            <div class="card-v" *ngFor="let item of shops; let i =index">
+                <div class="section-img">
+                    <img  (click)="GoShow(item)" [src]="'https://cdn.autosmotos.es/'+item.ad.thumbnail" alt="">
+                    <button class="btn btn-bookmark" (click)="SelectMark(item,i)" [id]="'btn'+i"><span class="icon-bookmark text-black"></span></button>
+
+                </div>
+
+                <div class="section-body">
+                    <h2 class="title"> {{item.ad.title}} </h2>
+
+                    <div class="grid gc-2x-g">
+                        <div class="grid gap-10">
+                            <h4>Marca: {{item.make.name}} </h4>
+
+                            <h4>Categoría: {{item.category}} </h4>
+                        </div>
+
+                        <div class="grid gap-10">
+                            <h4>Estado: {{item.condition}} </h4>
+                        </div>
+
+                    </div>
+
+                    <h1 class="title"> {{item.price}} </h1>
+
+                    <div class="footer">
+                        <a [href]="'tel:'+item.mechanic_ad.mobile_number" ><img src="../../../../assets/img/btn-wsp.png" alt=""></a> 
+                        <button  (click)="GoToWts(item.mechanic_ad.whatsapp_number)"  ><img src="../../../../assets/img/btn-phone.png" alt=""> </button> 
+                        <div class="grid gap-10">
+                            <h4>Vendedor</h4>
+                            <span class="color-rojo">5.0 <span class="icon-star color-rojo"></span></span>  
+                        </div> 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
